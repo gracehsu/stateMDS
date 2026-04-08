@@ -87,15 +87,15 @@ The Pipeline Will:
 
 4. Export coordinates and summary statistics to the output/ folder.
 
-### Step 3: Visualize the Trajectories (R)
-1. **Open the Visualization Script:** In RStudio, open `R/viz/plot_trajectories.R`.
-2. **Select Subject:** Change the `subject_id` variable at the top of the script to the ID of the subject you wish to visualize (e.g., `"subject1"`).
-3. **Generate Plots:**
-   * **2D View:** Run the first half of the script to generate a static `ggplot2` path. This is ideal for checking the overall "territory" the brain network covered.
-   * **3D Interactive View:** Run the `plotly` section to generate an interactive 3D spatiotemporal trajectory.
-4. **Interact:** Use your mouse to click and drag the 3D plot. By placing **Time (TR)** on the Z-axis, you can visualize the "flow" of brain states; vertical stacks indicate state stability, while wide horizontal leaps indicate rapid state transitions.
-5. **Export:** * Save the 2D plot using the "Export" button in the Plots pane.
-   * Save the 3D plot as an interactive `.html` file using `htmlwidgets::saveWidget()` or the "Save as Web Page" option in the Viewer pane.
+Step 3: Visualize the Trajectories (R)
+1. Open the Visualization Script: In RStudio, open `R/viz/plot_trajectories.R`.
+2. Select Subject: Change the `subject_id` variable at the top of the script to the ID of the subject you wish to visualize (e.g., `"subject1"`).
+3. Generate Plots:
+   2D View: Run the first half of the script to generate a static `ggplot2` path. This is ideal for checking the overall "territory" the brain network covered.
+   3D Interactive View: Run the `plotly` section to generate an interactive 3D spatiotemporal trajectory.
+4. Interact: Use your mouse to click and drag the 3D plot. By placing **Time (TR)** on the Z-axis, you can visualize the "flow" of brain states; vertical stacks indicate state stability, while wide horizontal leaps indicate rapid state transitions.
+5. Export: Save the 2D plot using the "Export" button in the Plots pane.
+   Save the 3D plot as an interactive `.html` file using `htmlwidgets::saveWidget()` or the "Save as Web Page" option in the Viewer pane.
 
 
 📤 Outputs
