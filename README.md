@@ -42,12 +42,12 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 
 ## 📦 Requirements
 
-MATLAB (Preprocessing)
-To run catCarryingVoxel.m, you will need:
+MATLAB (Extraction Pipeline)
+To run the extraction using catCarryingVoxel.m, you will need:
 
-MATLAB (R2020b or later recommended)
+MATLAB (R2016b or later).
 
-A NIfTI toolbox (e.g., SPM12 or the NIfTI toolset) added to your MATLAB path.
+SPM12 (Tested on revision 6906). The spm_vol, spm_read_vols, and spm_get_data functions must be in your MATLAB path.
 
 Install the following R packages:
 
@@ -58,13 +58,17 @@ install.packages(c("vegan", "ggplot2", "readr", "here", "fs", "dplyr"))
 ▶️ How to Run the Analysis
 
 Step 1: Voxel Extraction (MATLAB)
-Run catCarryingVoxel.m to convert your 4D EPI volumes into the required CSV format.
+Use catCarryingVoxel.m to extract values from your 4D EPI volumes using a mask (e.g., AAL3 or DiFuMo).
 
-Open MATLAB and navigate to the matlab/ folder.
+1. Open MATLAB and add SPM12 to your path.
 
-Ensure your .nii files are in data/raw/.
+2. Navigate to the matlab/ folder.
 
-Run the script to generate subject_voxels.csv files inside data/voxels/.
+3. Call the function using your mask and data:
+% Example: mode 2 (base on data space), threshold 0.5
+[meanval, voxelval, voxmni, voxcor] = catCarryingVoxel('my_mask.nii', 'data/raw/4D_EPI_volume.nii', 2, 0.5);
+
+4. Save the resulting voxelval as a CSV in data/voxels/ (e.g., subject1_voxels.csv).
 
 Step 2: MDS Analysis (R)
 Open Project: Launch brainMDS.Rproj in RStudio.
@@ -86,7 +90,7 @@ Export coordinates and summary statistics to the output/ folder.
 
 📤 Outputs
 data/voxels/
-For each subject: a CSV extracted from 4D volumes containing voxel x time matrices.
+For each subject: a CSV file containing voxel x time matrices extracted via MATLAB.
 
 output/MDSpoint/
 For each subject: a CSV with 2D/3D/4D MDS coordinates over time.
@@ -96,6 +100,11 @@ For each subject: a CSV containing step-by-step displacement distances.
 
 MDS_Velocity_Summary.csv: Group-level summary including total distance, mean distance, MDS stress, and convergence metrics.
 
-📌 Notes
-Paths are handled via the here package, so the project must be run from within the project root or with the .Rproj open in RStudio.
+📌 Implementation Notes
+Extraction Modes: catCarryingVoxel provides three modes. Use Mode 1 if your mask has a smaller voxel size than your data, or Mode 2 if you prefer to retain every voxel in the data space.
+
+NIfTI Data: A sample 4D EPI volume.nii is included in data/raw/ for testing your extraction parameters.
+
+Pathing: Always use the .Rproj file to maintain relative pathing via the here package.
+
 
