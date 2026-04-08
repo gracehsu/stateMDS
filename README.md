@@ -103,6 +103,12 @@ Step 3: Visualize the Trajectories (R)
 
 See a [sample 3D trajectory visualization here](assets/3D_screenshot.png).
 
+<details>
+  <summary>📸 Click to view sample 3D Trajectory Visualization</summary>
+  <br>
+  <img src="assets/screenshot.png" alt="stateMDS Trajectory" width="600">
+</details>
+
 📤 Outputs
 data/voxels/
 For each subject: a CSV file containing voxel x time matrices extracted via MATLAB.
