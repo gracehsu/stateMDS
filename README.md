@@ -34,7 +34,7 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 ├── matlab/             # Preprocessing scripts
 │   └── catCarryingVoxel.m  # Extracts voxel activity from 4D NIfTI to CSV
 │
-├── brainMDS.Rproj      # RStudio project file
+├── stateMDS.Rproj      # RStudio project file
 └── README.md           # Project documentation
 
 ```
