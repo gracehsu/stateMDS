@@ -29,8 +29,9 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 │   └── MDSpoint/       # Low-dimensional MDS coordinates
 │
 ├── R/                  # Core R analysis scripts
-│   └── run_mds_analysis.R
-│
+│   └── run_mds_analysis.R         # run MDS analysis 
+│   └── visualize_trajectories.R   # Visualize the trajectories 
+│  
 ├── matlab/             # Preprocessing scripts
 │   └── catCarryingVoxel.m  # Extracts voxel activity from 4D NIfTI to CSV
 │
@@ -71,21 +72,30 @@ Use catCarryingVoxel.m to extract values from your 4D EPI volumes using a mask (
 4. Save the resulting voxelval as a CSV in data/voxels/ (e.g., subject1_voxels.csv).
 
 Step 2: MDS Analysis (R)
-Open Project: Launch brainMDS.Rproj in RStudio.
+1. Open Project: Launch brainMDS.Rproj in RStudio.
 
-Execute Script: Run the following command in the R console:
+2. Execute Script: Run the following command in the R console:
 
 source("R/run_mds_analysis.R")
 
 The Pipeline Will:
-Load and preprocess voxel-level time series.
+1. Load and preprocess voxel-level time series.
 
-Perform Multidimensional Scaling (MDS) for each subject.
+2. Perform Multidimensional Scaling (MDS) for each subject.
 
-Calculate frame-to-frame "arrow distances" (velocity) across the scan duration.
+3. Calculate frame-to-frame "arrow distances" (velocity) across the scan duration.
 
-Export coordinates and summary statistics to the output/ folder.
+4. Export coordinates and summary statistics to the output/ folder.
 
+### Step 3: Visualize the Trajectories (R)
+1. **Open the Visualization Script:** In RStudio, open `R/viz/plot_trajectories.R`.
+2. **Select Subject:** Change the `subject_id` variable at the top of the script to the ID of the subject you wish to visualize (e.g., `"subject1"`).
+3. **Generate Plots:**
+   * **2D View:** Run the first half of the script to generate a static `ggplot2` path. This is ideal for checking the overall "territory" the brain network covered.
+   * **3D Interactive View:** Run the `plotly` section to generate an interactive 3D spatiotemporal trajectory.
+4. **Interact:** Use your mouse to click and drag the 3D plot. By placing **Time (TR)** on the Z-axis, you can visualize the "flow" of brain states; vertical stacks indicate state stability, while wide horizontal leaps indicate rapid state transitions.
+5. **Export:** * Save the 2D plot using the "Export" button in the Plots pane.
+   * Save the 3D plot as an interactive `.html` file using `htmlwidgets::saveWidget()` or the "Save as Web Page" option in the Viewer pane.
 
 
 📤 Outputs
