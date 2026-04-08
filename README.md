@@ -3,7 +3,7 @@
 [![R-Project](https://img.shields.io/badge/Language-R-blue.svg)](https://www.r-project.org/)
 [![Matlab](https://img.shields.io/badge/Language-MATLAB-orange.svg)](https://www.mathworks.com/products/matlab.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![stateMDS Trajectory](assets/screenshot.png)
+![stateMDS Trajectory](assets/3D_screenshot.png)
 
 ## 🧠 Overview
 **stateMDS** is a framework designed to quantify and visualize the dynamic trajectories of brain network states using resting-state fMRI (rsfMRI) data.
