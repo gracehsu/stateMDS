@@ -43,7 +43,7 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 Install the following R packages:
 
 ```r
-install.packages(c("vegan", "ggplot2", "readr", "here", "fs"))
+install.packages(c("vegan", "ggplot2", "readr", "here", "fs", "dplyr"))
 
 
 ▶️ How to Run the Analysis
