@@ -3,7 +3,6 @@
 [![R-Project](https://img.shields.io/badge/Language-R-blue.svg)](https://www.r-project.org/)
 [![Matlab](https://img.shields.io/badge/Language-MATLAB-orange.svg)](https://www.mathworks.com/products/matlab.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![stateMDS Trajectory](assets/3D_screenshot.png)
 
 ## 🧠 Overview
 **stateMDS** is a framework designed to quantify and visualize the dynamic trajectories of brain network states using resting-state fMRI (rsfMRI) data.
@@ -102,6 +101,7 @@ Step 3: Visualize the Trajectories (R)
 5. Export: Save the 2D plot using the "Export" button in the Plots pane.
    Save the 3D plot as an interactive `.html` file using `htmlwidgets::saveWidget()` or the "Save as Web Page" option in the Viewer pane.
 
+See a [sample 3D trajectory visualization here](assets/3D_screenshot.png).
 
 📤 Outputs
 data/voxels/
