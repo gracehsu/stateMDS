@@ -21,7 +21,7 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 ```text
 .
 ├── data/               
-│   ├── raw/            # Sample 4D EPI volume (.nii)
+│   ├── raw/            # Sample 4D EPI volume (.nii) & Sample mask (.nii)
 │   └── voxels/         # Extracted voxel-wise fMRI time series (CSV per subject)
 │
 ├── output/             # Generated analysis results
