@@ -19,27 +19,32 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 ## 📁 Repository Structure
 
 ```text
-.
+
 ├── data/               
 │   ├── raw/            # Sample 4D EPI volume (.nii) & Sample mask (.nii)
 │   └── voxels/         # Extracted voxel-wise fMRI time series (CSV per subject)
 │
 ├── output/             # Generated analysis results
 │   ├── arrowdis/       # Stepwise Euclidean "arrow" distances
-│   └── MDSpoint/       # Low-dimensional MDS coordinates
+│   ├── MDSpoint/       # Low-dimensional MDS coordinates
+│   └── plots/          # Visualization outputs
+│       ├── ge_heatmaps/   # Grid Entropy heatmaps
+│       └── LAM_plots/     # Recurrence plots for Laminarity
 │
-├── R/                  # Core R analysis scripts
-│   └── run_mds_analysis.R         # run MDS analysis 
-│   └── visualize_trajectories.R   # Visualize the trajectories 
-│  
 ├── matlab/             # Preprocessing scripts
-│   └── catCarryingVoxel.m  # Extracts voxel activity from 4D NIfTI to CSV
+│   └── catCarryingVoxel.m           # Step 1: Voxel extraction
+│  
+├── R/                  # Core R analysis and visualization scripts
+│   ├── run_mds_analysis.R           # Step 2: Main MDS pipeline
+│   ├── calculate_brain_indices.R    # Step 3: Compute CHA, GE, and LAM
+│   ├── visualize_trajectories.R     # Step 4a: 2D/3D Trajectory plotting
+│   ├── plot_state_space_heatmap.R   # Step 4b: GE Grid occupancy heatmaps
+│   └── plot_LAM_plots.R             # Step 4c: Recurrence plots
 │
 ├── stateMDS.Rproj      # RStudio project file
 └── README.md           # Project documentation
 
 ```
-
 
 ## 📦 Requirements
 
@@ -53,8 +58,7 @@ SPM12 (Tested on revision 6906). The spm_vol, spm_read_vols, and spm_get_data fu
 Install the following R packages:
 
 ```r
-install.packages(c("vegan", "ggplot2", "readr", "here", "fs", "dplyr"))
-
+install.packages(c("vegan", "ggplot2", "readr", "here", "fs", "dplyr", "plotly", "geometry", "entropy", "fields"))
 
 ▶️ How to Run the Analysis
 
@@ -87,21 +91,19 @@ The Pipeline Will:
 
 4. Export coordinates and summary statistics to the output/ folder.
 
-Step 3: Visualize the Trajectories (R)
-1. Open the Visualization Script: In RStudio, open `R/viz/plot_trajectories.R`.
+Step 3: Calculate Brain Indices (R)
+Compute high-level geometric and dynamic metrics:
 
-2. Select Subject: Change the `subject_id` variable at the top of the script to the ID of the subject you wish to visualize (e.g., `"subject1"`).
+Step 4: Visualization (R)
+Choose a script based on your visualization needs:
 
-3. Generate Plots:
-   2D View: Run the first half of the script to generate a static `ggplot2` path. This is ideal for checking the overall "territory" the brain network covered.
-   3D Interactive View: Run the `plotly` section to generate an interactive 3D spatiotemporal trajectory.
+Trajectories: Run R/visualize_trajectories.R for interactive 3D "corkscrew" views (MDS1, MDS2, Time) and 2D paths.
+See a [sample 3D trajectory visualization here](assets/subject1_3D_screenshot.png).
 
-4. Interact: Use your mouse to click and drag the 3D plot. By placing **Time (TR)** on the Z-axis, you can visualize the "flow" of brain states; vertical stacks indicate state stability, while wide horizontal leaps indicate rapid state transitions.
+Grid Entropy: Run R/plot_state_space_heatmap.R to generate warm-colored grid occupancy heatmaps in output/plots/ge_heatmaps/.
 
-5. Export: Save the 2D plot using the "Export" button in the Plots pane.
-   Save the 3D plot as an interactive `.html` file using `htmlwidgets::saveWidget()` or the "Save as Web Page" option in the Viewer pane.
+Laminarity: Run R/plot_LAM_plots.R to generate Laminarity plots in output/plots/LAM_plots/.
 
-See a [sample 3D trajectory visualization here](assets/3D_screenshot.png).
 
 📤 Outputs
 data/voxels/
@@ -114,6 +116,11 @@ output/arrowdis/
 For each subject: a CSV containing step-by-step displacement distances.
 
 MDS_Velocity_Summary.csv: Group-level summary including total distance, mean distance, MDS stress, and convergence metrics.
+
+output/Brain_Indices_Summary.csv: CHA_Raw/Norm, GE_Raw/Norm, LAM_Norm.
+
+output/plots/
+PNG files for GE heatmaps, and LAM recurrence plots.
 
 📌 Implementation Notes
 Extraction Modes: catCarryingVoxel provides three modes. Use Mode 1 if your mask has a smaller voxel size than your data, or Mode 2 if you prefer to retain every voxel in the data space.
