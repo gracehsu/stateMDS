@@ -18,7 +18,7 @@ dir_create(output_mdspoint)
 # 2. Configuration
 file_names <- dir_ls(input_dir, regexp = "\\.csv$")
 dimension  <- 2    # MDS dimensions
-max_TR     <- 240  # Maximum TRs to analyze per subject
+max_TR     <- 180  # Maximum TRs to analyze per subject
 
 # 3. Initialize Summary Table
 # Pre-defining types prevents numeric data from being forced into characters
