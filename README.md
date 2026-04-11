@@ -92,7 +92,7 @@ The Pipeline Will:
 4. Export coordinates and summary statistics to the output/ folder.
 
 Step 3: Calculate Brain Indices (R)
-Compute high-level geometric and dynamic metrics:
+Compute high-level geometric and dynamic metrics: Convex Hull Area (CHA), Grid Entropy (GE), and Laminarity (LAM)
 
 Step 4: Visualization (R)
 Choose a script based on your visualization needs:
