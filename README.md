@@ -28,6 +28,7 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 │   ├── arrowdis/       # Stepwise Euclidean "arrow" distances
 │   ├── MDSpoint/       # Low-dimensional MDS coordinates
 │   └── plots/          # Visualization outputs
+│       ├── 2d_trajectories/ # Automated 2D state space trajectory plots
 │       ├── ge_heatmaps/   # Grid Entropy heatmaps
 │       └── LAM_plots/     # Recurrence plots for Laminarity
 │
@@ -35,11 +36,12 @@ This method is atlas-agnostic and can be applied to any network of interest (e.g
 │   └── catCarryingVoxel.m           # Step 1: Voxel extraction
 │  
 ├── R/                  # Core R analysis and visualization scripts
-│   ├── run_mds_analysis.R           # Step 2: Main MDS pipeline
-│   ├── calculate_brain_indices.R    # Step 3: Compute CHA, GE, and LAM
-│   ├── visualize_trajectories.R     # Step 4a: 2D/3D Trajectory plotting
-│   ├── plot_state_space_heatmap.R   # Step 4b: GE Grid occupancy heatmaps
-│   └── plot_LAM_plots.R             # Step 4c: Recurrence plots
+│   ├── run_mds_analysis.R                 # Step 2: Main MDS pipeline
+│   ├── calculate_brain_indices.R          # Step 3: Compute CHA, GE, and LAM
+│   ├── visualize_trajectories.R           # Step 4a: Single 2D/3D Trajectory plotting
+│   ├── Automated_2D_Trajectory_Plotting.R # Step 4b: Batch Automated 2D Trajectory plotting
+│   ├── plot_state_space_heatmap.R         # Step 4c: GE Grid occupancy heatmaps
+│   └── plot_LAM_plots.R                   # Step 4d: LAM plots
 │
 ├── stateMDS.Rproj      # RStudio project file
 └── README.md           # Project documentation
@@ -97,12 +99,14 @@ Compute high-level geometric and dynamic metrics: Convex Hull Area (CHA), Grid E
 Step 4: Visualization (R)
 Choose a script based on your visualization needs:
 
-Trajectories: Run R/visualize_trajectories.R for interactive 3D "corkscrew" views (MDS1, MDS2, Time) and 2D paths.
+a. Trajectories: Run R/visualize_trajectories.R for interactive 3D "corkscrew" views (MDS1, MDS2, Time) and 2D paths.
 See a [sample 3D trajectory visualization here](assets/subject1_3D_screenshot.png).
 
-Grid Entropy: Run R/plot_state_space_heatmap.R to generate warm-colored grid occupancy heatmaps in output/plots/ge_heatmaps/.
+b. 2D Trajectories:Run R/Automated_2D_Trajectory_Plotting.R to generate 2D trajectories plots in output/plots/2d_trajectories
 
-Laminarity: Run R/plot_LAM_plots.R to generate Laminarity plots in output/plots/LAM_plots/.
+c. Grid Entropy: Run R/plot_state_space_heatmap.R to generate warm-colored grid occupancy heatmaps in output/plots/ge_heatmaps/.
+
+d. Laminarity: Run R/plot_LAM_plots.R to generate Laminarity plots in output/plots/LAM_plots/.
 
 
 📤 Outputs
