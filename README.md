@@ -14,6 +14,9 @@
 
 This method is atlas-agnostic and can be applied to any network of interest (e.g., Default Mode Network, Salience Network) defined by standard atlases like **AAL3**, **DiFuMo**, or custom ROI sets.
 
+This is the key publication inaugurating this methodology:
+Hsu, C.-W., Hsieh, S., Lin, W.-R., Chang, Y.-T., Su, Y.-S., Yang, C.-T., … Goh, J. O. S. (2025). Functional Transition Rate of the Default Mode Network is Associated with Self-Reported Resilience. Neuroimage, 121508. [https://doi.org/10.1016/j.neuroimage.2025.121508](https://www.sciencedirect.com/science/article/pii/S1053811925005117)
+
 ---
 
 ## 📁 Repository Structure
