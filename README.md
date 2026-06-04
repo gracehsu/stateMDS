@@ -157,6 +157,6 @@ Regardless of which workflow you choose, the pipeline yields standard outputs:
 
 
 ## 📌 Implementation Notes
-* **Extraction Modes (MATLAB):** `catCarryingVoxel` provides three modes. Use Mode 1 if your mask has a smaller voxel size than your data, or Mode 2 if you prefer to retain every voxel in the data space.
+* **Extraction Modes (MATLAB):** `catCarryingVoxel` provides two modes. Use Mode 1 if your mask has a smaller voxel size than your data, or Mode 2 if you prefer to retain every voxel in the data space.
 * **NIfTI Data:** A sample `4D_EPI_volume.nii` is included in `data/raw/` for testing your MATLAB extraction parameters.
 * **Pathing:** Always use the `.Rproj` file to maintain relative pathing via the `here` package if running R scripts manually.
