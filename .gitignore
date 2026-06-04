@@ -2,3 +2,6 @@ output/
 output_*/
 .ipynb_checkpoints/
 Archive/
+venv/
+R/Archive/
+R/obsolete/
