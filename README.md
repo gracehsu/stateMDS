@@ -96,10 +96,11 @@ We offer two distinct preprocessing pipelines depending on your workflow prefere
 
 **Route 1: End-to-End Open Data Pipeline**
 Want to test the pipeline immediately? Run the Python master script. It acts as an intelligent data manager:
-* Downloads the ADHD-200 dataset (or scans your local cache).
-* **Standardizes TRs:** Parses NIfTI headers to find the global minimum TR count across the cohort and standardizes the lengths to ensure fair metric comparisons.
-* Extracts the requested network (e.g., Default Mode Network) via `NiftiMasker`.
-* Seamlessly hands off the parameters to the Bash wrapper to trigger the full R pipeline.
+* **Intelligent Archiving:** Automatically detects if old `.csv` matrices exist in your `data/voxels/` folder and archives them with a timestamp to prevent accidental cohort mixing.
+* **Automated Ingestion & Extraction:** Downloads the ADHD-200 dataset (or efficiently scans your local cache) and extracts the requested network (e.g., Default Mode Network) using Nilearn's `NiftiMasker`.
+* **Temporal Standardization:** Because different subjects or scanning sites often have different scan lengths, the script parses the NIfTI headers to find the **global minimum TR count** across your selected cohort. It then slices every extracted matrix to this exact length. This ensures every subject has the exact same temporal opportunity to explore the state space, preventing artificial variance in Velocity or Convex Hull Area (CHA).
+* **Automated Garbage Collection:** Neuroimaging datasets are massive. Once the script successfully finds the target cohort, it actively deletes the unused NIfTI and confound files from your local cache, keeping your hard drive safe from bloat.
+* **Seamless Handoff:** Dynamically passes the standardized TR count directly into the Bash script's `-t` parameter, seamlessly triggering the full R-based NMDS pipeline without any manual configuration.
 
 ```bash
 python opendata_ADHD.py
