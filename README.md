@@ -47,27 +47,18 @@ To quantify the dynamic trajectory of brain states, we calculate several topolog
 stateMDS/
 ├── opendata_ADHD.py              # Automated Python ingestion & standardizing script
 ├── run_stateMDS.sh               # Master Bash Pipeline (Triggers R)
-├── plot_group_stats.py           # Group-level statistics & plotting (t-tests, swarmplots)
 │
 ├── R/                            # Core R analysis and visualization scripts
-│   ├── run_mds_analysis.R                 # Step 1: NMDS & Velocity
-│   ├── calculate_brain_indices.R          # Step 2: Compute CHA, GE, and LAM
-│   ├── visualize_trajectories.R           # Step 3a: Interactive 3D Trajectories
-│   ├── Automated_2D_Trajectory_Plotting.R # Step 3b: Batch 2D Trajectory plotting
-│   ├── plot_state_space_heatmap.R         # Step 3c: Grid Entropy heatmaps
-│   └── plot_LAM_plots.R                   # Step 3d: LAM recurrence plots
-│
+│   ├── run_MDS_analysis.R                 # Step 1: NMDS & Velocity
+│   ├── run_brain_indices.R                # Step 2: Compute CHA, GE, and LAM
+│   ├── visualize_trajectories.R           # Step 3: Plotting
+│   
 ├── matlab/                       # Legacy Preprocessing scripts
 │   └── catCarryingVoxel.m                 # Voxel extraction using SPM12
 │
 ├── data/               
 │   ├── raw/                      # Sample 4D EPI volume (.nii) & Sample mask (.nii)
 │   └── voxels/                   # Target directory for extracted voxel matrices (CSVs)
-│
-├── output/                       # Generated analysis results
-│   ├── arrowdis/                 # Stepwise Euclidean "arrow" distances
-│   ├── MDSpoint/                 # Low-dimensional MDS coordinates
-│   └── plots/                    # Visualization outputs
 │
 └── stateMDS.Rproj                # RStudio project file
 ```
