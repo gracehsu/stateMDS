@@ -5,3 +5,6 @@ Archive/
 venv/
 R/Archive/
 R/obsolete/
+R/.Rhistory
+R/.Rdata
+R/.Ruserdata
