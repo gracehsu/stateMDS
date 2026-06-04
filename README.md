@@ -7,6 +7,8 @@
 ## 🧠 Overview
 **stateMDS** is a framework designed to quantify and visualize the dynamic trajectories of brain network states using resting-state fMRI (rsfMRI) data.
 
+![NeuroImageKeyFig](https://ars.els-cdn.com/content/image/1-s2.0-S1053811925005117-gr1.jpg)
+
 ### The Concept
 * **Functional State:** Defined as the spatial pattern of multi-voxel activity (BOLD signal intensities) captured at a single time point ($TR$) within a predefined network or ROI.
 * **State Transition:** A temporal change in this multi-voxel pattern. By quantifying frame-by-frame changes, we capture the dynamic trajectory of a network’s activity.
