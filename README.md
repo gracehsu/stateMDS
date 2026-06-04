@@ -111,22 +111,28 @@ If you already have a folder of Time points × Voxels `.csv` files, you can skip
 chmod +x run_stateMDS.sh
 ./run_stateMDS.sh -d data/my_custom_voxels -o output_stateMDS -t 180
 ```
-*(Use `-h` for advanced customization flags like max dimensions `-k` and stress thresholds `-s`).*
 
+** ⚙️ Advanced Usage & Customization
+You can fully customize the `run_stateMDS.sh` behavior using terminal flags:
+
+* `-d` : Input directory containing TSV/CSV files (Default: `data/voxels`)
+* `-o` : Main output directory (Default: `output_stateMDS`)
+* `-t` : Maximum TRs to analyze per subject (Dynamically set by Python script, or default: `180`)
+* `-s` : Maximum acceptable NMDS stress value (Default: `0.15`)
+* `-k` : Maximum dimension to test (Default: `10`)
 ---
 
 ### Workflow B: The MATLAB / SPM Pipeline
 *Recommended for users integrating with existing SPM12 preprocessing streams.*
 
 **Step 1: Voxel Extraction (MATLAB)**
-Use `catCarryingVoxel.m` to extract values from your 4D EPI volumes using a mask (e.g., AAL3 or DiFuMo).
+Use [`catCarryingVoxel.m`](https://github.com/yushiangsu/catCarryingVoxel) to extract values from your 4D EPI volumes using a mask (e.g., AAL3 or DiFuMo).
 1. Open MATLAB and add SPM12 to your path.
 2. Navigate to the `matlab/` folder.
 3. Call the function using your mask and data:
-```matlab
+   ```matlab
    % Example: mode 2 (base on data space), threshold 0.5
    [meanval, voxelval, voxmni, voxcor] = catCarryingVoxel('my_mask.nii', 'data/raw/4D_EPI_volume.nii', 2, 0.5);
-   ```
 4. Save the resulting `voxelval` as a CSV in `data/voxels/` (e.g., `subject1_voxels.csv`).
 
 **Step 2: MDS Analysis & Indices (R)**
