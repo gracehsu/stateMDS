@@ -38,6 +38,8 @@ To quantify the dynamic trajectory of brain states, we calculate several topolog
 
 * **YouTube Tutorial Session:** A full 3-hour recording of an informal tutorial session. [Watch here](https://youtu.be/zDz5QLKrTHo?si=22w8gCQf-trRVcyF) *(Note: Core instruction spans 15:20 ~ 1:10:30).*
 * **Key Publication:** Hsu, C.-W., et al. (2025). Functional Transition Rate of the Default Mode Network is Associated with Self-Reported Resilience. *Neuroimage*, 121508. [Read the paper here](https://doi.org/10.1016/j.neuroimage.2025.121508). *This is the key publication inaugurating this methodology.*
+* **Supplementary Movie 1** Supplementary video hosted on PubMed illustrating DMN functional state transitions in a representative high self-resilient participant. [Movie](https://pmc.ncbi.nlm.nih.gov/articles/instance/13229582/bin/NIHMS2170243-supplement-MovieS1.mov)
+* * **Supplementary Movie 2** Supplementary video hosted on PubMed illustrating DMN functional state transitions in a representative low self-resilient participant. [Movie](https://pmc.ncbi.nlm.nih.gov/articles/instance/13229582/bin/NIHMS2170243-supplement-MovieS2.mov)
 
 ---
 
