@@ -162,3 +162,24 @@ Regardless of which workflow you choose, the pipeline yields standard outputs:
 * **Extraction Modes (MATLAB):** `catCarryingVoxel` provides two modes. Use Mode 1 if your mask has a smaller voxel size than your data, or Mode 2 if you prefer to retain every voxel in the data space.
 * **NIfTI Data:** A sample `4D_EPI_volume.nii` is included in `data/raw/` for testing your MATLAB extraction parameters.
 * **Pathing:** Always use the `.Rproj` file to maintain relative pathing via the `here` package if running R scripts manually.
+
+## 🙏 Acknowledgments & Funding
+
+### Database Credit
+This methodology and dataset pipeline integrate resources from the **Taiwan BIG AIR** (*Taiwan Brain Imaging Genetics and Artificial Intelligence on Resilience*) database.
+
+### Grant Support
+This work was supported by research grants from the **National Science and Technology Council (NSTC), Taiwan**, and the **National Institutes of Health (NIH), USA**:
+
+* **National Science and Technology Council (NSTC), Taiwan:**
+  * 111–2321-B-006–008
+  * 112–2321-B-006–013
+  * 112–2321-B-006–014
+  * 113–2321-B-006–014
+  * 114–2321-B-006–015
+  * 115–2321-B-006–011
+  * 110–2410-H-002–126-MY3
+  * 110–2511-H-002–005-MY3
+
+* **National Institute on Aging (NIA / NIH), USA:**
+  * R01AG061886
